@@ -10,15 +10,15 @@
 <section class="band" id="about"><div class="wrap split"><h2>About TAU</h2><p>TAU LLC FZ is a UAE-based trading and supply company. We source raw materials and packaging through an international supplier network and coordinate supply around our customers’ requirements.</p></div></section>
 <section class="wrap section"><h2>Our Services</h2><div class="cards"><a class="card" href="./services/raw-materials/"><img src="./assets/raw-materials.webp" alt=""><div><h3>Raw Materials</h3><p>We source and supply raw materials for FMCG manufacturers and industrial clients.</p><span class="more">Explore service →</span></div></a><a class="card" href="./services/packaging-materials/"><img src="./assets/packaging-materials.webp" alt=""><div><h3>Packaging Materials</h3><p>We source and supply packaging materials for the FMCG and manufacturing sectors.</p><span class="more">Explore service →</span></div></a><a class="card" href="./services/sourcing-logistics/"><img src="./assets/sourcing-logistics.webp" alt=""><div><h3>Sourcing & Logistics</h3><p>We support international sourcing, procurement, and the import and export of industrial materials.</p><span class="more">Explore service →</span></div></a></div></section>
 <section class="band" id="inquiries"><div class="wrap split section"><div><h2>Business Inquiries</h2><p>Tell us what you need, including any specifications, estimated quantity and delivery location.</p></div>
-<form aria-describedby="form-status"><div class="fields">
-<label>Full Name<input autocomplete="name" required></label><label>Company Name<input autocomplete="organization" required></label>
-<label>Business Email<input type="email" autocomplete="email" required></label><label>Phone / WhatsApp <small>(optional)</small><input type="tel" autocomplete="tel"></label>
-<label class="wide">Inquiry Type<select id="type" required><option value="">Select inquiry type</option><option value="raw-materials">Raw Materials</option><option value="packaging-materials">Packaging Materials</option><option value="sourcing-logistics">Sourcing &amp; Logistics</option><option value="other">Other</option></select></label>
-<label class="wide">Inquiry Details<textarea rows="4" required></textarea></label></div>
-<button class="button" type="submit" disabled>Send Inquiry</button><p id="form-status">Online inquiries will be available soon.</p></form></div></section>
+<form name="tau-inquiry" method="POST" data-netlify="true" netlify-honeypot="bot-field" aria-describedby="form-status"><input type="hidden" name="form-name" value="tau-inquiry"><p hidden><label>Leave empty<input name="bot-field"></label></p><div class="fields">
+<label>Full Name<input name="name" autocomplete="name" required></label><label>Company Name<input name="company" autocomplete="organization" required></label>
+<label>Business Email<input name="email" type="email" autocomplete="email" required></label><label>Phone / WhatsApp <small>(optional)</small><input name="phone" type="tel" autocomplete="tel"></label>
+<label class="wide">Inquiry Type<select name="inquiry-type" id="type" required><option value="">Select inquiry type</option><option value="raw-materials">Raw Materials</option><option value="packaging-materials">Packaging Materials</option><option value="sourcing-logistics">Sourcing &amp; Logistics</option><option value="other">Other</option></select></label>
+<label class="wide">Inquiry Details<textarea name="message" rows="4" required></textarea></label></div>
+<button class="button" type="submit">Send Inquiry</button><p id="form-status">Submit your requirements and our team will review your inquiry.</p></form></div></section>
 <script>
 const selection = new URLSearchParams(location.search).get('service');
 const inquiryType = document.querySelector('#type');
 if ([...inquiryType.options].some(option => option.value === selection)) inquiryType.value = selection;
-document.querySelector('form').addEventListener('submit', event => event.preventDefault());
+
 </script></main><footer>TAU LLC FZ <span>·</span> United Arab Emirates <span>·</span> taugrp.com</footer></body></html>
